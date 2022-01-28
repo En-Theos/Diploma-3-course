@@ -1,0 +1,547 @@
+@charset "UTF-8";
+/*Обнуление*/
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@700&family=Montserrat:wght@400;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/*--------------------*/
+@font-face {
+  font-family: 'Gotham';
+  src: url("../fonts/Gotham/GothamProNarrow-Bold.eot");
+  src: local("☺"), url("../fonts/Gotham/GothamProNarrow-Bold.woff") format("woff"), url("../fonts/Gotham/GothamProNarrow-Bold.ttf") format("truetype"), url("../fonts/Gotham/GothamProNarrow-Bold.svg") format("svg");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url("../fonts/Gotham/GothaProMed.eot");
+  src: local("☺"), url("../fonts/Gotham/GothaProMed.woff") format("woff"), url("../fonts/Gotham/GothaProMed.ttf") format("truetype"), url("../fonts/Gotham/GothaProMed.svg") format("svg");
+  font-weight: 500;
+  font-style: normal;
+}
+
+body {
+  position: relative;
+}
+
+body header {
+  height: 100vh;
+  background-image: url("../image/fon.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+
+body header .limit {
+  max-width: 1390px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 90px 10px 0;
+}
+
+body header .limit nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 0 10vh;
+}
+
+body header .limit nav .logo {
+  width: 120px;
+}
+
+body header .limit nav .logo img {
+  width: 100%;
+}
+
+body header .limit nav .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 0 15px;
+}
+
+body header .limit nav .menu div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body header .limit nav .menu div p {
+  position: relative;
+  margin: 0 20px;
+}
+
+body header .limit nav .menu div p::after {
+  position: absolute;
+  bottom: -200%;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 3px;
+  background-color: #28c8c6;
+  -webkit-transition: .4s transform;
+  transition: .4s transform;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: right;
+          transform-origin: right;
+}
+
+body header .limit nav .menu div p:hover::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+body header .limit nav .menu div p a {
+  color: #ffffff;
+  font-family: "Gotham";
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+body header .limit nav .menu div .active::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+body header .limit nav .menu i {
+  margin-left: 10px;
+}
+
+body header .limit .contentHeader .text {
+  max-width: 530px;
+}
+
+body header .limit .contentHeader .text h1 {
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 55px;
+  text-transform: uppercase;
+  margin: 0 0 35px;
+}
+
+body header .limit .contentHeader .text p {
+  color: #ffffff;
+  font-family: "Gotham";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  margin: 0 0 25px;
+}
+
+body header .limit .contentHeader .scrollDown {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -40px;
+  margin: 0 auto;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+  z-index: 100;
+}
+
+body header .limit .contentHeader .scrollDown a {
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+body header .limit .contentHeader .scrollDown a i {
+  font-size: 25px;
+  color: #28c8c6;
+  -webkit-transform: rotateZ(90deg);
+          transform: rotateZ(90deg);
+}
+
+body main #systemIt {
+  position: relative;
+  z-index: 100;
+  background-color: #f6f9fc;
+  background-image: url(../image/box_dataportal_1.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+body main #systemIt .limit {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  height: 100vh;
+  text-align: center;
+}
+
+body main #systemIt .limit h2 {
+  color: #333b42;
+  font-family: "Gotham";
+  font-size: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 180px 40px 0;
+}
+
+body main #systemIt .limit p {
+  max-width: 800px;
+  color: #74797e;
+  font-family: "Gotham";
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 25px;
+  margin: 0 40px 70px 0;
+}
+
+body main #BDIt {
+  position: relative;
+  z-index: 101;
+  background-color: #ffffff;
+  background-image: url("../image/big-data.png");
+  background-repeat: no-repeat;
+  background-size: 40%;
+  background-position: right;
+}
+
+body main #BDIt .limit {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  height: 100vh;
+  text-align: center;
+}
+
+body main #BDIt .limit h2 {
+  color: #333b42;
+  font-family: "Gotham";
+  font-size: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 40px 280px;
+}
+
+body main #BDIt .limit p {
+  max-width: 800px;
+  color: #74797e;
+  font-family: "Gotham";
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 25px;
+  margin: 0 40px 70px 0;
+}
+
+body main #sqlIt {
+  position: relative;
+  z-index: 101;
+  background-color: #f6f9fc;
+  background-image: url("../image/cropped-SQL2019-1.png");
+  background-repeat: no-repeat;
+  background-size: 30%;
+  background-position: 100px;
+}
+
+body main #sqlIt .limit {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  height: 100vh;
+  text-align: center;
+}
+
+body main #sqlIt .limit h2 {
+  color: #333b42;
+  font-family: "Gotham";
+  font-size: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 365px 40px 0;
+}
+
+body main #sqlIt .limit p {
+  max-width: 800px;
+  color: #74797e;
+  font-family: "Gotham";
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 25px;
+  margin: 0 40px 70px 0;
+}
+
+body footer .limit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 50px 0 50px;
+}
+
+body footer .limit .linkFooter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 45px;
+}
+
+body footer .limit .linkFooter div:first-child {
+  margin-right: 80px;
+}
+
+body footer .limit .linkFooter div:first-child p a {
+  color: #8297a7;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 35px;
+}
+
+body footer .limit .linkFooter > div:last-child p {
+  text-align: right;
+  color: #8297a7;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 35px;
+}
+
+body footer .limit .textFooter p {
+  color: #8297a7;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 35px;
+}
+
+body .elevatorUp {
+  position: absolute;
+  z-index: 110;
+  padding-top: 680px;
+  top: 0;
+  right: 0px;
+  width: 72px;
+  height: 100%;
+}
+
+body .elevatorUp .btn {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 100px;
+  height: 72px;
+  border-radius: 5px;
+  background-color: #8500d21e;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+body .elevatorUp .btn:hover {
+  background-color: #8500d2;
+}
+
+body .elevatorUp .btn a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+body .elevatorUp .btn a i {
+  font-size: 25px;
+  color: #ffffff;
+  -webkit-transform: rotateZ(-90deg);
+          transform: rotateZ(-90deg);
+}
+
+body .button {
+  width: 170px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: #8500d2;
+}
+
+body .button a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  width: 100%;
+  color: #ffffff;
+  font-family: "Gotham";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+body .scrollDown {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -40px;
+  margin: 0 auto;
+  width: 80px;
+  height: 80px;
+  background-color: #28c8c6;
+  border-radius: 50%;
+}
+
+body .scrollDown a {
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+body .scrollDown a i {
+  font-size: 25px;
+  color: #ffffff;
+  -webkit-transform: rotateZ(90deg);
+          transform: rotateZ(90deg);
+}

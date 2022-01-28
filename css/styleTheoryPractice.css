@@ -1,0 +1,365 @@
+@charset "UTF-8";
+/*Обнуление*/
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@700&family=Montserrat:wght@400;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/*--------------------*/
+@font-face {
+  font-family: 'Gotham';
+  src: url("../fonts/Gotham/GothamProNarrow-Bold.eot");
+  src: local("☺"), url("../fonts/Gotham/GothamProNarrow-Bold.woff") format("woff"), url("../fonts/Gotham/GothamProNarrow-Bold.ttf") format("truetype"), url("../fonts/Gotham/GothamProNarrow-Bold.svg") format("svg");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url("../fonts/Gotham/GothaProMed.eot");
+  src: local("☺"), url("../fonts/Gotham/GothaProMed.woff") format("woff"), url("../fonts/Gotham/GothaProMed.ttf") format("truetype"), url("../fonts/Gotham/GothaProMed.svg") format("svg");
+  font-weight: 500;
+  font-style: normal;
+}
+
+body {
+  position: relative;
+}
+
+body header {
+  background-image: url("../image/fon.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+
+body header .limit {
+  max-width: 1390px;
+  height: 120px;
+  margin: 0 auto;
+  padding: 0 10px 0;
+}
+
+body header .limit nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 0 10vh;
+}
+
+body header .limit nav .logo {
+  width: 120px;
+}
+
+body header .limit nav .logo img {
+  width: 100%;
+}
+
+body header .limit nav .search {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  max-width: 870px;
+  position: relative;
+}
+
+body header .limit nav .search [type="text"] {
+  width: 268px;
+  height: 60px;
+  -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#eeeeee), to(#ffffff));
+  background-image: linear-gradient(to top, #eeeeee 0%, #ffffff 100%);
+  color: #333333;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 0 70px 0 25px;
+}
+
+body header .limit nav .search button i {
+  position: absolute;
+  left: 240px;
+  top: 20px;
+  color: #28c8c6;
+  font-size: 19px;
+  -webkit-transform: rotateZ(90deg);
+          transform: rotateZ(90deg);
+  cursor: pointer;
+}
+
+body header .limit nav .search button:nth-child(2) i {
+  -webkit-transform: rotateZ(0deg);
+          transform: rotateZ(0deg);
+}
+
+body header .limit nav .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 0 15px;
+}
+
+body header .limit nav .menu div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body header .limit nav .menu div p {
+  position: relative;
+  margin: 0 20px;
+}
+
+body header .limit nav .menu div p::after {
+  position: absolute;
+  bottom: -200%;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 3px;
+  background-color: #28c8c6;
+  -webkit-transition: .4s transform;
+  transition: .4s transform;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: right;
+          transform-origin: right;
+}
+
+body header .limit nav .menu div p:hover::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+body header .limit nav .menu div p a {
+  color: #ffffff;
+  font-family: "Gotham";
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+body header .limit nav .menu div .active::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+body header .limit nav .menu i {
+  margin-left: 10px;
+}
+
+body main {
+  min-height: 80vh;
+  background-color: #f6f9fc;
+}
+
+body main .limit {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+body main .limit .buttonLesson {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 60px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 2;
+}
+
+body main .limit .buttonLesson::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #28c8c6;
+  -webkit-transition: 1s -webkit-transform;
+  transition: 1s -webkit-transform;
+  transition: 1s transform;
+  transition: 1s transform, 1s -webkit-transform;
+  -webkit-transition-timing-function: ease-in;
+          transition-timing-function: ease-in;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+}
+
+body main .limit .buttonLesson:hover::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+body main .limit .buttonLesson img {
+  width: 40px;
+}
+
+body main .limit .buttonLesson p {
+  cursor: pointer;
+  color: #74797e;
+  font-family: "Gotham";
+  font-size: 20px;
+  font-weight: 500;
+}
+
+body .modalLesson {
+  display: none;
+  z-index: 20;
+  position: fixed;
+  display: none;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000bd;
+}
+
+body .modalLesson .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #ffffff;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+body .modalLesson .header .close {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80px;
+  height: 40px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+body .modalLesson .header .tehHide {
+  width: 100px;
+}
+
+body .modalLesson .content {
+  padding: 0 0 0 50%;
+  height: 100%;
+}
+
+body .modalLesson .content .error {
+  color: #ffffff;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  text-align: center;
+}
+
+body .modalLesson .content iframe {
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 830px;
+  height: 100%;
+}
