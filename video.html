@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/styleTheoryPractice.css">
+    <link rel="stylesheet" href="css/video.css">
     <link rel="stylesheet" href="fonts/fontawesome/css/all.css">
 </head>
 <body>
@@ -16,15 +16,15 @@
                      <img src="image/1287883.png" alt="logo">
                  </div>
                  <div class="search">
-                    <input autocomplete="off" placeholder="Введіть номер лекції" type="text" name="text" id="">
+                    <input autocomplete="off" placeholder="Введіть номер відео" type="text" name="text" id="">
                     <button><i class="fas fa-arrow-right"></i></button> 
                 </div>
                  <div class="menu">
                      <div>
                          <p><a href="./index.html">Головна</a></p>
                          <p><a href="./theory.html">Теорія</a></p>
-                         <p class="active"><a href="./practice.html">Практика</a></p>
-                         <p><a href="./video.html">Відео уроки</a></p>
+                         <p><a href="./practice.html">Практика</a></p>
+                         <p class="active"><a href="./video.html">Відео уроки</a></p>
                      </div>
                  </div>
              </nav>
@@ -32,18 +32,18 @@
     </header>
     <main>
         <div class="limit">
-            
         </div>
     </main>
     <div class="modalLesson">
         <div class="header">
             <div class="close"><i class="fas fa-arrow-left"></i> Назад</div>
-            <div class="download"><a href="" rel="nofollow" target="_blank">Скачать <i class="fas fa-file-download"></i></a></div>
             <div class="tehHide"></div>
         </div>
         <img src="./image/load.gif" alt="">
-        <div class="content"></div>
+        <div class="content">
+            <div id="frame"></div>
+        </div>
     </div>
-   <script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
