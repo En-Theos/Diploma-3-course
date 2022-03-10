@@ -107,6 +107,12 @@ body header .limit {
   padding: 0 10px 0;
 }
 
+@media (max-width: 480px) {
+  body header .limit {
+    padding: 30px 10px 0;
+  }
+}
+
 body header .limit nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -122,6 +128,12 @@ body header .limit nav {
 
 body header .limit nav .logo {
   width: 120px;
+}
+
+@media (max-width: 480px) {
+  body header .limit nav .logo {
+    display: none;
+  }
 }
 
 body header .limit nav .logo img {
@@ -145,10 +157,16 @@ body header .limit nav .search [type="text"] {
   background-image: -webkit-gradient(linear, left bottom, left top, from(#eeeeee), to(#ffffff));
   background-image: linear-gradient(to top, #eeeeee 0%, #ffffff 100%);
   color: #333333;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Gotham";
   font-size: 14px;
   font-weight: 400;
   padding: 0 70px 0 25px;
+}
+
+@media (max-width: 480px) {
+  body header .limit nav .search [type="text"] {
+    width: 200px;
+  }
 }
 
 body header .limit nav .search button i {
@@ -162,9 +180,123 @@ body header .limit nav .search button i {
   cursor: pointer;
 }
 
+@media (max-width: 480px) {
+  body header .limit nav .search button i {
+    left: 170px;
+  }
+}
+
 body header .limit nav .search button:nth-child(2) i {
   -webkit-transform: rotateZ(0deg);
           transform: rotateZ(0deg);
+}
+
+body header .limit nav .burger {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  body header .limit nav .burger {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+body header .limit nav .burger .btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 27px;
+  position: fixed;
+  right: 20px;
+  z-index: 1000;
+}
+
+body header .limit nav .burger .btn .line {
+  width: 30px;
+  height: 4px;
+  background-color: #62d0e4;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+body header .limit nav .burger .link {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 800;
+  width: 100%;
+  height: 100vh;
+  background-color: #1c242ad0;
+  padding: 8px 25px 20px;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+body header .limit nav .burger .link p {
+  margin: 10px 0;
+}
+
+body header .limit nav .burger .link p a {
+  color: #ffffff;
+  font-family: "Gotham";
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  -webkit-transition: color .3s linear;
+  transition: color .3s linear;
+}
+
+body header .limit nav .burger .link p a:hover {
+  color: #bb9c66;
+}
+
+body header .limit nav .active .btn .line:nth-child(1) {
+  -webkit-transform: rotateZ(-45deg) translateX(-9px) translateY(8px);
+          transform: rotateZ(-45deg) translateX(-9px) translateY(8px);
+}
+
+body header .limit nav .active .btn .line:nth-child(2) {
+  -webkit-transform: rotateZ(45deg);
+          transform: rotateZ(45deg);
+}
+
+body header .limit nav .active .btn .line:nth-child(3) {
+  -webkit-transform: rotateZ(-45deg) translateX(8px) translateY(-8px);
+          transform: rotateZ(-45deg) translateX(8px) translateY(-8px);
+}
+
+body header .limit nav .active .link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 body header .limit nav .menu {
@@ -172,6 +304,12 @@ body header .limit nav .menu {
   display: -ms-flexbox;
   display: flex;
   padding: 0 0 15px;
+}
+
+@media (max-width: 900px) {
+  body header .limit nav .menu {
+    display: none;
+  }
 }
 
 body header .limit nav .menu div {
@@ -249,10 +387,17 @@ body main .limit .buttonLesson {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 60px;
+  min-height: 60px;
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 2;
+  padding: 7px 10px 7px 10px;
+}
+
+@media (max-width: 900px) {
+  body main .limit .buttonLesson:nth-child(odd) {
+    background-color: #78787e1a;
+  }
 }
 
 body main .limit .buttonLesson::after {
@@ -287,18 +432,32 @@ body main .limit .buttonLesson i {
   color: #5b9cdada;
 }
 
-body main .limit .buttonLesson p {
+body main .limit .buttonLesson a {
+  display: block;
   cursor: pointer;
   color: #74797e;
   font-family: "Gotham";
   font-size: 20px;
   font-weight: 500;
+  line-height: 20px;
+}
+
+@media (max-width: 680px) {
+  body main .limit .buttonLesson a {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 480px) {
+  body main .limit .buttonLesson a {
+    font-size: 16px;
+  }
 }
 
 body .modalLesson {
   position: relative;
   display: none;
-  z-index: 20;
+  z-index: 20000;
   position: fixed;
   display: none;
   top: 0;

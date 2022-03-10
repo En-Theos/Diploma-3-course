@@ -86,6 +86,32 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/js/modules/burger.js":
+/*!**********************************!*\
+  !*** ./src/js/modules/burger.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return burger; });
+function burger(selButton, selMenu) {
+  const menu = document.querySelector(selMenu);
+  const btn = document.querySelector(selButton);
+  btn.addEventListener('click', () => {
+    if (!menu.parentElement.classList.contains("active")) {
+      document.body.style.overflowY = "hidden";
+      menu.parentElement.classList.add("active");
+    } else {
+      menu.parentElement.classList.remove("active");
+      document.body.style.overflowY = "";
+    }
+  });
+}
+
+/***/ }),
+
 /***/ "./src/js/modules/generateButtons.js":
 /*!*******************************************!*\
   !*** ./src/js/modules/generateButtons.js ***!
@@ -105,12 +131,13 @@ async function generateButtons(data) {
     "links": []
   };
 
-  function generate(dataGen) {
+  function generate(dataGen, mod) {
+    conteiner.innerHTML = "";
     dataGen.forEach(item => {
       conteiner.innerHTML += `
             <div class="buttonLesson" data-lesson="${item.id}">
-                <i class="far fa-file"></i>
-                <p>${item.name}</p>
+                <i class="${mod ? 'far fa-file' : 'fas fa-file-download'}"></i>
+                <a href="${mod ? '#' : item.link}">${item.name}</a>
             </div>
             `;
       listCode.frames.push(item.code);
@@ -118,11 +145,15 @@ async function generateButtons(data) {
     });
   }
 
-  if (document.URL.includes('theory')) {
-    generate(data.theory);
-  } else if (document.URL.includes('practice')) {
-    generate(data.practice);
-  } else if (document.URL.includes('video')) {
+  function tehnicalFun(mod) {
+    if (document.URL.includes('theory')) {
+      generate(data.theory, mod);
+    } else if (document.URL.includes('practice')) {
+      generate(data.practice, mod);
+    }
+  }
+
+  if (document.URL.includes('video')) {
     data.video.forEach(item => {
       conteiner.innerHTML += `
                 <div class="buttonLesson" data-code="${item.code}">
@@ -133,6 +164,18 @@ async function generateButtons(data) {
     });
   }
 
+  window.getComputedStyle(document.querySelector(".burger")).display == "flex" ? tehnicalFun(0) : tehnicalFun(1);
+  let i = 0;
+  window.addEventListener('resize', () => {
+    if (window.getComputedStyle(document.querySelector(".burger")).display == "flex" && i === 0) {
+      tehnicalFun(0);
+      i++;
+    } else if (window.getComputedStyle(document.querySelector(".burger")).display == "none" && i === 1) {
+      tehnicalFun(1);
+      Object(_modal__WEBPACK_IMPORTED_MODULE_0__["default"])(listCode);
+      i--;
+    }
+  });
   Object(_modal__WEBPACK_IMPORTED_MODULE_0__["default"])(listCode);
 }
 
@@ -162,13 +205,23 @@ function modal(listCode) {
 
   buttonSearch.addEventListener('click', () => {
     if (buttonSearch.parentElement.previousElementSibling.value != "") {
-      modalBlock.style.display = "block";
-      document.body.style.overflow = "hidden";
+      if (window.getComputedStyle(document.querySelector(".burger")).display == "none") {
+        modalBlock.style.display = "block";
+        document.body.style.overflow = "hidden";
 
-      if (document.URL.includes('theory') || document.URL.includes('practice')) {
-        modalBlock.querySelector('.content').innerHTML = listCode.frames[buttonSearch.parentElement.previousElementSibling.value - 1] || `<p class="error">Лекції з таким номером не знайдено</p>`;
-        modalBlock.querySelector('.header .download a').href = listCode.links[buttonSearch.parentElement.previousElementSibling.value - 1];
-      } else if (document.URL.includes('video')) {
+        if (document.URL.includes('theory') || document.URL.includes('practice')) {
+          modalBlock.querySelector('.content').innerHTML = listCode.frames[buttonSearch.parentElement.previousElementSibling.value - 1] || `<p class="error">Лекції з таким номером не знайдено</p>`;
+          modalBlock.querySelector('.header .download a').href = listCode.links[buttonSearch.parentElement.previousElementSibling.value - 1];
+        }
+      } else {
+        if (!document.URL.includes('video')) {
+          document.documentElement.querySelector(`.buttonLesson:nth-child(${buttonSearch.parentElement.previousElementSibling.value})`).querySelector("a").click();
+        }
+      }
+
+      if (document.URL.includes('video')) {
+        modalBlock.style.display = "block";
+        document.body.style.overflow = "hidden";
         let player = new YT.Player('frame', {
           videoId: listCode.frames[buttonSearch.parentElement.previousElementSibling.value - 1]
         });
@@ -177,13 +230,19 @@ function modal(listCode) {
   });
   buttons.forEach(button => {
     button.addEventListener('click', event => {
-      modalBlock.style.display = "block";
-      document.body.style.overflow = "hidden";
+      if (window.getComputedStyle(document.querySelector(".burger")).display == "none") {
+        modalBlock.style.display = "block";
+        document.body.style.overflow = "hidden";
 
-      if (document.URL.includes('theory') || document.URL.includes('practice')) {
-        modalBlock.querySelector('.content').innerHTML = listCode.frames[button.getAttribute("data-lesson") - 1] || `<p class="error">Лекції з таким номером не знайдено</p>`;
-        modalBlock.querySelector('.header .download a').href = listCode.links[button.getAttribute("data-lesson") - 1];
-      } else if (document.URL.includes('video')) {
+        if (document.URL.includes('theory') || document.URL.includes('practice')) {
+          modalBlock.querySelector('.content').innerHTML = listCode.frames[button.getAttribute("data-lesson") - 1] || `<p class="error">Лекції з таким номером не знайдено</p>`;
+          modalBlock.querySelector('.header .download a').href = listCode.links[button.getAttribute("data-lesson") - 1];
+        }
+      }
+
+      if (document.URL.includes('video')) {
+        modalBlock.style.display = "block";
+        document.body.style.overflow = "hidden";
         let player = new YT.Player('frame', {
           videoId: event.target.getAttribute("data-code")
         });
@@ -277,9 +336,11 @@ function search() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_scroll__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/scroll */ "./src/js/modules/scroll.js");
-/* harmony import */ var _modules_search__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/search */ "./src/js/modules/search.js");
-/* harmony import */ var _modules_generateButtons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/generateButtons */ "./src/js/modules/generateButtons.js");
+/* harmony import */ var _modules_burger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/burger */ "./src/js/modules/burger.js");
+/* harmony import */ var _modules_scroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/scroll */ "./src/js/modules/scroll.js");
+/* harmony import */ var _modules_search__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/search */ "./src/js/modules/search.js");
+/* harmony import */ var _modules_generateButtons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/generateButtons */ "./src/js/modules/generateButtons.js");
+
 
 
 
@@ -290,73 +351,73 @@ window.addEventListener('DOMContentLoaded', () => {
     "theory": [{
       "id": 1,
       "name": "Тема №1: Поняття про інформаційні системи. Класифікація інформаційних систем",
-      "code": "<iframe src='https://docs.google.com/document/d/e/2PACX-1vRbcfUEeq4VX0SjnynxPxQzghTB9rK5Adj7OsU07_C7IcbBl_k1FPWeNEgOf3kNyigYVPhVdm-lbbOE/pub?embedded=true'></iframe>",
+      "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vTOgS6Op22kJOZZBQffBtM-xFfKOMyc41fPqs7fJ3tAnucQm_4eezjCSPRdlZwwQA/pub?embedded=true"></iframe>',
       "link": 'https://drive.google.com/uc?export=download&id=1L4eXYeesh1UzMObkGKJ2g4FeGvW22qmu'
     }, {
       "id": 2,
       "name": "Тема №2: Бази даних та моделі даних. Користувачі бази даних",
-      "code": "<iframe src='https://docs.google.com/document/d/e/2PACX-1vSO1iKBi0Y0JAFZwiEEYgSG5pUMaOh93q4hntZD9dKMMJfiNPi4wx7phGTevppXdm3IH2hmpl5VIMfR/pub?embedded=true'></iframe>",
+      "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vSNkGMOb9t0q6Kv9ielOHo7s92Nj5a8K7jo2bIzJFwPVyAMwgh4YAZwMEaolqnt8A/pub?embedded=true"></iframe>',
       "link": 'https://drive.google.com/uc?export=download&id=1Ae6C_ueWQwKmudmmXoIRPOJcr06DPe6w'
     }, {
       "id": 3,
       "name": "Тема №3: Класифікація систем керування базами даних",
-      "code": "<iframe src='https://docs.google.com/document/d/e/2PACX-1vTAyMnda1WXu5Mr96excn5V_ylqtURS1XnMXwI-7j3BibDX2W-wQsuVq54S7oNV85mAxfzPzwfxFsKO/pub?embedded=true'></iframe>",
+      "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vTv-7L7pOT-iLGJVU-gjtffQQblYw8bXGx5Tpf5yPLa0FtH_0vc0OFmzbozP0Wi5w/pub?embedded=true"></iframe>',
       "link": 'https://drive.google.com/uc?export=download&id=1QWZxR_5MaYJc36xm39c5HCVQ-ImZ4g4v'
     }, {
       "id": 4,
       "name": "Тема №4: Основні поняття мови SQL. Типи команд SQL",
-      "code": "<iframe src='https://docs.google.com/document/d/e/2PACX-1vQoiSZ0nPiQFV8EfvRt0TTAjY5tUcCMbINEvcdhxQQDOzi-0vL9PvLugGyGtxwU21FWbTiLcXjCZMhT/pub?embedded=true'></iframe>",
+      "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vSLF8AQfOdZ_do-qmbP0Mm-cJ_7X3E0AgIgqbM1tKnA_Ai3RlRvIVV6Bwit11_UEA/pub?embedded=true"></iframe>',
       "link": 'https://drive.google.com/uc?export=download&id=1bEeszEpyvF0o1InV6UCV8yyOvhzzoSj2'
     }, {
       "id": 5,
       "name": "Тема №5: Типи даних в SQL",
-      "code": "<iframe src='https://docs.google.com/document/d/e/2PACX-1vTiVkXB01zZIfulWAfRjq5G-5CTOJ5gFXg8IGFHD8NMMo209vCSDj1dxoRDPc34WEJwKXJWDwyJzhxU/pub?embedded=true'></iframe>",
+      "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vTiwyPsJbziGkd7nW8RguyVsaPIqaHoX536BY3ZM0pszE5UqYvyEnypsSGmdhIXoA/pub?embedded=true"></iframe>',
       "link": 'https://drive.google.com/uc?export=download&id=1aZkWBpjyF7mWKGtWVfk7dHD021q08EmU'
     }, {
       "id": 6,
       "name": "Тема №6: Установка програми PgAdmin 4",
-      "code": "<iframe src='https://docs.google.com/document/d/e/2PACX-1vQLaJlPnPloa6S7Qn_XeU7WRt8EDx5uwtWSImV-WxwNpi3p3NknxI_iNW1uKnP2duYUNJKk08XDH6Ra/pub?embedded=true'></iframe>",
+      "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vTrYR6btuayC_-jnyzZTC-LRkXTPaBko1reNiIGEsj4I39pcRk5vUI5on2xqjqpCQ/pub?embedded=true"></iframe>',
       "link": 'https://drive.google.com/uc?export=download&id=1xZfsXe4qe6OEEKftm7OS47jDwz7Vu5_g'
     }, {
       "id": 7,
       "name": "Тема №7: Команди для створення бази даних та таблиць",
-      "code": "<iframe src='https://docs.google.com/document/d/e/2PACX-1vQ4EroSJ4yRF_kNxmW6dE-374ebywrcgsdudCdhzVgzOyTG0Y7j4aoOhag0TrWkyqzqKjHSwxrxQna-/pub?embedded=true'></iframe>",
+      "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vTmT-EFWNcWCOq4qWy6vGOVhWhgQDnjVEme3WnR1iG_gke0MlfMUYBvbbSRyYUsxg/pub?embedded=true"></iframe>',
       "link": 'https://drive.google.com/uc?export=download&id=1i_K4rF5u8Fic3Q_3DZR67WK3fhB1TzBb'
     }, {
       "id": 8,
       "name": "Тема №8: Основні команди для роботи з таблицями в PgAdmin 4",
-      "code": "<iframe src='https://docs.google.com/document/d/e/2PACX-1vTVyNKH8Luzu5rLFq4E21nRcIAX4Mm1Zfk9znqF8miYmv1KC_pm3CQ-TdrMb3LpKoCENsKJsvDDUmFE/pub?embedded=true'></iframe>",
+      "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vRrbi_TSo-S_1-AkqNdMJ_o1mOxTprz-gn8iQBLI0V2LiKGTy2EYBTgWfn3ag3RKA/pub?embedded=true"></iframe>',
       "link": 'https://drive.google.com/uc?export=download&id=1RA72g4aHHMUgIKx8uVHWIj4JZnK9yP_J'
     }, {
       "id": 9,
       "name": "Тема №9: Вибірка даних зі створених відношень",
-      "code": "<iframe src='https://docs.google.com/document/d/e/2PACX-1vQ_JBNblmBLZHdZJX_d1xk7ajeticzB1VSJHgGrto7HtiBxS93Ye1rrbcP4FstlW1Dz2rPrTEkOURSa/pub?embedded=true'></iframe>",
+      "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vT2AVBaoZeKKU570ol_p_Chfth1ITSqt6vn0wfcHNliXD-6USWyYerOXhK7i58cpg/pub?embedded=true"></iframe>',
       "link": 'https://drive.google.com/uc?export=download&id=1ztIzuXO4myNoWB8XAEL_M8Uim6myasvu'
     }, {
       "id": 10,
       "name": "Тема №10: Сортування вибраних даних",
-      "code": "<iframe src='https://docs.google.com/document/d/e/2PACX-1vSyTCdnAV9B1F8yfqeCBxyUWGBXVm9Xz2fAO6mKO3KXv68Urv0TK6f8feZvqmaNfJv5PwD5Dve0MOWz/pub?embedded=true'></iframe>",
+      "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vQNW2Ove9OYrl7ZdtcYWVhiNxxOhrz0lIFpVC_TxAHimrD6_pw7hkqkehe7D5a5hg/pub?embedded=true"></iframe>',
       "link": 'https://drive.google.com/uc?export=download&id=1cL3r2fdBYr_lBQBgawwKZpBmrkB8fAvy'
     }, {
       "id": 11,
       "name": "Тема №11: Створення об'єднання таблиць",
-      "code": "<iframe src='https://docs.google.com/document/d/e/2PACX-1vRipl-AiQoXBk-xksMfTVdVZXUSwbgVSe8u8R5rh0nFUvmb9eb1-0DopkjMQboqhrRTFbC2ZisFlojz/pub?embedded=true'></iframe>",
+      "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vRmi5s0At1Ap1It00zSXIMqmEgAmAJ1BYJa44JfCTfemwByfuzh5ZV9oafo8PgeOQ/pub?embedded=true"></iframe>',
       "link": 'https://drive.google.com/uc?export=download&id=1VfrhXQanyJAKwBzQUxnoDrvTKSm4nUuD'
     }],
     "practice": [{
       "id": 1,
       "name": "Лабораторно-практична робота №1: Створення бази даних та таблиць.",
-      "code": "<iframe src='https://docs.google.com/document/d/e/2PACX-1vRRiS4XzML9OIQpHvnqbCINloBQUd-fgdENEnfCpWDzsbRwdDcSDRVjMK_mqCPprQ/pub?embedded=true'></iframe>",
+      "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vRanFfz8Sft2meGbUoKeZ_ghcCU04uUasLECqYNqSSmzf-pHhz3ucUb8t9UwBlstg/pub?embedded=true"></iframe>',
       "link": 'https://drive.google.com/uc?export=download&id=1fcdlgkA3zQs09UXLWyX3SoS16sb5bHGC'
     }, {
       "id": 2,
       "name": "Лабораторно-практична робота №2: Внесення змін у базу даних та таблиць",
-      "code": "<iframe src='https://docs.google.com/document/d/e/2PACX-1vScUy9HmhNCrtoFtpBTKa5PEhyCSPTPU9BDgFIoQ91ERWgjZe47_WbfI80z7IXEGQ/pub?embedded=true'></iframe>",
+      "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vTI4cshx5B6unAI4M7WLvwq0NsOgcjMzArq2fOi0taIUHLxXeHIlHeIqTF6dWfEWA/pub?embedded=true"></iframe>',
       "link": 'https://drive.google.com/uc?export=download&id=1PYs60ZzJuXHsJMGvxHlUOHkLIga9099m'
     }, {
       "id": 3,
       "name": "Лабораторно-практична робота №3: Вибірка даних зі створених відношень",
-      "code": "<iframe src='https://docs.google.com/document/d/e/2PACX-1vTjn1BcLZTLrg0DdY9bOqT69A39OlaKkf3HD0aVlSW8_J0qCyrXIbXSVTtSCTiQJA/pub?embedded=true'></iframe>",
+      "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vS2zTXhsLE6OfWHbo61jFRmfRv_QSfCPabdi-Ch71Q1GkK_SD0niym1Sbsj8LEvAQ/pub?embedded=true"></iframe>',
       "link": 'https://drive.google.com/uc?export=download&id=1KqE8rexj6a1Ksm2hlbwPCeD9-7K5fFDX'
     }],
     "video": [{
@@ -407,11 +468,13 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   if (document.URL.includes('theory') || document.URL.includes('practice') || document.URL.includes('video')) {
-    Object(_modules_generateButtons__WEBPACK_IMPORTED_MODULE_2__["default"])(data);
-    Object(_modules_search__WEBPACK_IMPORTED_MODULE_1__["default"])();
+    Object(_modules_generateButtons__WEBPACK_IMPORTED_MODULE_3__["default"])(data);
+    Object(_modules_search__WEBPACK_IMPORTED_MODULE_2__["default"])();
   } else {
-    Object(_modules_scroll__WEBPACK_IMPORTED_MODULE_0__["default"])();
+    Object(_modules_scroll__WEBPACK_IMPORTED_MODULE_1__["default"])();
   }
+
+  Object(_modules_burger__WEBPACK_IMPORTED_MODULE_0__["default"])(".burger .btn", ".link");
 });
 
 /***/ })
