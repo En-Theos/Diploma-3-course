@@ -93,7 +93,7 @@ body {
 }
 
 body header {
-  height: 100vh;
+  min-height: 100vh;
   background-image: url("../image/fon.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -110,7 +110,7 @@ body header .limit {
 
 @media (max-width: 1200px) {
   body header .limit {
-    padding: 30px 18px 0;
+    padding: 30px 18px 20px;
   }
 }
 
@@ -630,7 +630,7 @@ body .elevatorUp {
   height: 100%;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 850px) {
   body .elevatorUp {
     display: none;
   }
@@ -720,7 +720,7 @@ body .scrollDown {
   border-radius: 50%;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 850px) {
   body .scrollDown {
     display: none;
   }
