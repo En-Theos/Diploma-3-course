@@ -396,7 +396,7 @@ body main .limit .buttonLesson {
 
 @media (max-width: 900px) {
   body main .limit .buttonLesson:nth-child(odd) {
-    background-color: #78787e1a;
+    background-color: #0f0fe30e;
   }
 }
 
@@ -467,6 +467,7 @@ body .modalLesson {
   width: 100%;
   height: 100%;
   background-color: #000000bd;
+  padding: 10px 0 0 0;
 }
 
 body .modalLesson .header {
