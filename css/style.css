@@ -593,6 +593,7 @@ body footer .limit .linkFooter {
 
 body footer .limit .linkFooter div:first-child {
   width: 100px;
+  flex-shrink: 0;
   margin-right: 80px;
 }
 
