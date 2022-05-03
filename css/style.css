@@ -592,11 +592,11 @@ body footer .limit .linkFooter {
 }
 
 body footer .limit .linkFooter div:first-child {
+  width: 100px;
   margin-right: 80px;
 }
 
 body footer .limit .linkFooter div:first-child p a {
-  width: 100px;
   color: #8297a7;
   font-family: "Montserrat", sans-serif;
   font-size: 12px;
