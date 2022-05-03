@@ -291,7 +291,7 @@ function scroll() {
         let r;
 
         if (toBlock < 0) {
-          r = heightTop - Math.min(px, heightTop);
+          r = heightTop - Math.min(px, Math.abs(toBlock));
           document.documentElement.scrollTo(0, r);
         } else {
           r = heightTop + Math.min(px, toBlock);
