@@ -137,7 +137,9 @@ async function generateButtons(data) {
       conteiner.innerHTML += `
             <div class="buttonLesson" data-lesson="${item.id}">
                 <i class="${mod ? 'far fa-file' : 'fas fa-file-download'}"></i>
-                <a href="${mod ? '#' : item.link}">${item.name}</a>
+                <div class="link">
+                    <a href="${mod ? '#' : item.link}">${item.name}</a>
+                </div>
             </div>
             `;
       listCode.frames.push(item.code);
@@ -192,7 +194,7 @@ async function generateButtons(data) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return modal; });
 function modal(listCode) {
-  const buttons = document.querySelectorAll('.buttonLesson'),
+  const buttons = document.querySelectorAll('.buttonLesson a'),
         buttonSearch = document.querySelector(".search form"),
         modalBlock = document.querySelector('.modalLesson');
 
@@ -237,8 +239,8 @@ function modal(listCode) {
         document.body.style.overflow = "hidden";
 
         if (document.URL.includes('theory') || document.URL.includes('practice')) {
-          modalBlock.querySelector('.content').innerHTML = listCode.frames[button.getAttribute("data-lesson") - 1] || `<p class="error">Лекції з таким номером не знайдено</p>`;
-          modalBlock.querySelector('.header .download a').href = listCode.links[button.getAttribute("data-lesson") - 1];
+          modalBlock.querySelector('.content').innerHTML = listCode.frames[button.closest('.buttonLesson').getAttribute("data-lesson") - 1] || `<p class="error">Лекції з таким номером не знайдено</p>`;
+          modalBlock.querySelector('.header .download a').href = listCode.links[button.closest('.buttonLesson').getAttribute("data-lesson") - 1];
         }
       }
 

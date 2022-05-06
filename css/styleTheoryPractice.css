@@ -408,10 +408,10 @@ body main .limit .buttonLesson::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: 0;
+  top: -10px;
   width: 100%;
   height: 4px;
-  background-color: #28c8c6;
+  background-color: #47adc7;
   -webkit-transition: 1s -webkit-transform;
   transition: 1s -webkit-transform;
   transition: 1s transform;
@@ -438,7 +438,12 @@ body main .limit .buttonLesson i {
   border-right: 3px solid #47adc7;
 }
 
-body main .limit .buttonLesson a {
+body main .limit .buttonLesson .link {
+  height: 60px;
+  overflow: auto;
+}
+
+body main .limit .buttonLesson .link a {
   display: block;
   cursor: pointer;
   color: #74797e;
@@ -446,18 +451,16 @@ body main .limit .buttonLesson a {
   font-size: 20px;
   font-weight: 500;
   line-height: 20px;
-  height: 60px;
-  overflow: auto;
 }
 
 @media (max-width: 680px) {
-  body main .limit .buttonLesson a {
+  body main .limit .buttonLesson .link a {
     font-size: 17px;
   }
 }
 
 @media (max-width: 480px) {
-  body main .limit .buttonLesson a {
+  body main .limit .buttonLesson .link a {
     font-size: 16px;
   }
 }
