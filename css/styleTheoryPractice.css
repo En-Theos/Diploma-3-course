@@ -384,19 +384,23 @@ body main .limit .buttonLesson {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  min-height: 60px;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 2;
-  padding: 7px 10px 7px 10px;
+  padding-bottom: 6px;
 }
 
 @media (max-width: 900px) {
-  body main .limit .buttonLesson:nth-child(odd) {
-    background-color: #0f0fe30e;
+  body main .limit .buttonLesson {
+    border-bottom: 3px solid #47adc7;
+    margin-bottom: 8px;
+  }
+  body main .limit .buttonLesson:last-child {
+    border-bottom: 0 solid #47adc7;
+    margin-bottom: 0;
   }
 }
 
@@ -428,8 +432,10 @@ body main .limit .buttonLesson:hover::after {
 body main .limit .buttonLesson i {
   font-size: 25px;
   display: inline-block;
-  margin-right: 6px;
+  padding-right: 5px;
+  margin-right: 5px;
   color: #5b9cdada;
+  border-right: 3px solid #47adc7;
 }
 
 body main .limit .buttonLesson a {
@@ -440,6 +446,8 @@ body main .limit .buttonLesson a {
   font-size: 20px;
   font-weight: 500;
   line-height: 20px;
+  height: 60px;
+  overflow: scroll;
 }
 
 @media (max-width: 680px) {
