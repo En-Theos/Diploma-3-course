@@ -194,7 +194,7 @@ async function generateButtons(data) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return modal; });
 function modal(listCode) {
-  const buttons = document.querySelectorAll('.buttonLesson a'),
+  const buttons = document.querySelectorAll(document.URL.includes('video') ? '.buttonLesson' : '.buttonLesson a'),
         buttonSearch = document.querySelector(".search form"),
         modalBlock = document.querySelector('.modalLesson');
 
