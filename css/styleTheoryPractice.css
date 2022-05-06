@@ -447,7 +447,7 @@ body main .limit .buttonLesson a {
   font-weight: 500;
   line-height: 20px;
   height: 60px;
-  overflow: scroll;
+  overflow: auto;
 }
 
 @media (max-width: 680px) {
