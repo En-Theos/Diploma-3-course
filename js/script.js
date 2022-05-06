@@ -325,7 +325,7 @@ __webpack_require__.r(__webpack_exports__);
 function search() {
   const input = document.querySelector(".search input");
   input.addEventListener('input', () => {
-    input.value = input.value.replace(/\D/, "");
+    input.value = input.value.replace(/[^0-9]/, "");
   });
 }
 
