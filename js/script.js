@@ -423,11 +423,6 @@ window.addEventListener('DOMContentLoaded', () => {
       "name": "Лабораторно-практична робота №3: Вибірка даних зі створених відношень",
       "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vS2zTXhsLE6OfWHbo61jFRmfRv_QSfCPabdi-Ch71Q1GkK_SD0niym1Sbsj8LEvAQ/pub?embedded=true"></iframe>',
       "link": 'https://drive.google.com/uc?export=download&id=183gaEoKryL8hbeeIPV2r-dY3yxUcFHw7'
-    },{
-      "id": 4,
-      "name": "Лабораторно-практична робота №3: Вибірка даних зі створених відношень",
-      "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vS2zTXhsLE6OfWHbo61jFRmfRv_QSfCPabdi-Ch71Q1GkK_SD0niym1Sbsj8LEvAQ/pub?embedded=true"></iframe>',
-      "link": 'https://drive.google.com/uc?export=download&id=183gaEoKryL8hbeeIPV2r-dY3yxUcFHw7'
     }],
     "video": [{
       "id": 1,
