@@ -407,66 +407,91 @@ window.addEventListener('DOMContentLoaded', () => {
       "name": "Тема №11: Створення об'єднання таблиць",
       "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vRmi5s0At1Ap1It00zSXIMqmEgAmAJ1BYJa44JfCTfemwByfuzh5ZV9oafo8PgeOQ/pub?embedded=true"></iframe>',
       "link": 'https://drive.google.com/uc?export=download&id=1AnAAYjw4AcqnQu-WNI8DZQbCf_GAdqdM'
+    }, {
+      "id": 12,
+      "name": "Тема №12: Фільтрування даних",
+      "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vSq-iYwJQL6VrJpfFIUHKOgPnk6NvXWqxBS0GKX7_X3jC9RJaiHfLms1T_orcnxqg/pub?embedded=true"></iframe>',
+      "link": 'https://drive.google.com/uc?export=download&id=1T5B4EIG2hw4Qu24SI1YhCXj_bsL2zhhS'
+    },{
+      "id": 13,
+      "name": "Тема №12: Розширене фільтрування даних (1-2)",
+      "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vRBVQoTxBwdHbxISZoqXZezS50hmhE9yLyfw-kTFp2xqSQwD_kRu_ikrncT_CzKkg/pub?embedded=true"></iframe>',
+      "link": 'https://drive.google.com/uc?export=download&id=1IClUvDC8anBvYIF7M9NbezwhBQvnzLMS'
+    },{
+      "id": 14,
+      "name": "Тема №12: Розширене фільтрування даних (2-2)",
+      "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vTarjZleU9cuLQNkofH4xqanQCttGPoNPr3ctyO25d7a6WvlGu4G-eqpidZTIW7pg/pub?embedded=true"></iframe>',
+      "link": 'https://drive.google.com/uc?export=download&id=1ObeLBiSHbIXhAwrhIRJsF6or_DBUNtUP'
     }],
     "practice": [{
       "id": 1,
-      "name": "Лабораторно-практична робота №1: Створення бази даних та таблиць.",
+      "name": "Лабораторно-практична робота №1-2: Створення бази даних та таблиць.",
       "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vRanFfz8Sft2meGbUoKeZ_ghcCU04uUasLECqYNqSSmzf-pHhz3ucUb8t9UwBlstg/pub?embedded=true"></iframe>',
       "link": 'https://drive.google.com/uc?export=download&id=1rmeVyDvnPQ2Ly3y7UnPK5CxWkiOcXFRh'
     }, {
       "id": 2,
-      "name": "Лабораторно-практична робота №2: Внесення змін у базу даних та таблиць",
+      "name": "Лабораторно-практична робота №3-4: Внесення змін у базу даних та таблиць",
       "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vTI4cshx5B6unAI4M7WLvwq0NsOgcjMzArq2fOi0taIUHLxXeHIlHeIqTF6dWfEWA/pub?embedded=true"></iframe>',
       "link": 'https://drive.google.com/uc?export=download&id=1W7rttMeIaz6FfmCmRrg5ALZU8uhPphhu'
     }, {
       "id": 3,
-      "name": "Лабораторно-практична робота №3: Вибірка даних зі створених відношень",
+      "name": "Лабораторно-практична робота №5-6: Вибірка даних зі створених відношень",
       "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vS2zTXhsLE6OfWHbo61jFRmfRv_QSfCPabdi-Ch71Q1GkK_SD0niym1Sbsj8LEvAQ/pub?embedded=true"></iframe>',
       "link": 'https://drive.google.com/uc?export=download&id=183gaEoKryL8hbeeIPV2r-dY3yxUcFHw7'
+    }, {
+      "id": 4,
+      "name": "Лабораторно-практична робота №7-8: Вибірка даних зі створених відношень",
+      "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vS8k_MRHJ5h1HZebsFV7pFSMdf0KISWO14il-gUQEdYVYeg5TSkeNKX6UBxcGG4Cg/pub?embedded=true"></iframe>',
+      "link": 'https://drive.google.com/uc?export=download&id=1Nf72tHWvu_oINvDSFWFOzubedRqTSj1a'
+    }, {
+      "id": 5,
+      "name": "Лабораторно-практична робота №9-10: Вибірка даних зі створених відношень",
+      "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vQR6yU79Yv-91XwTxc5R6R1ZdlU1zvGWCaZ_LiYYG0uIRA4XCu6ZmvKULcTV8jW9g/pub?embedded=true"></iframe>',
+      "link": 'https://drive.google.com/uc?export=download&id=1YNc_C_hf7-Ohd5z0Plg1SpU4orUeGGtt'
     }],
     "video": [{
       "id": 1,
-      "name": '#1 Введение в PostgreSQL',
+      "name": '#1 Введення в PostgreSQL',
       "code": 'HVQNxdI6fqY'
     }, {
       "id": 2,
-      "name": '#2 Базовые SELECT запросы',
+      "name": '#2 Базові SELECT запити',
       "code": 'QlTKtC0_Wgk'
     }, {
       "id": 3,
-      "name": '#3 Соединения (JOIN)',
+      "name": "#3 З'єднання (JOIN)",
       "code": 'oKVbDq84GzY'
     }, {
       "id": 4,
-      "name": '#4 Подзапросы в SQL',
+      "name": '#4 Підзапити в SQL',
       "code": '_3rTKVFXz10'
     }, {
       "id": 5,
-      "name": '#5 DDL: создание БД, таблиц и их модификация',
+      "name": '#5 DDL: створення БД, таблиць та їх модифікація',
       "code": '4NVHu34abo0'
     }, {
       "id": 6,
-      "name": '#6 Проектирование и нормализация Базы Данных (БД)',
+      "name": '#6 Проектування та нормалізація Бази Даних (БД)',
       "code": 'AdWi1L5Q13o'
     }, {
       "id": 7,
-      "name": '#7 Представления в SQL',
+      "name": '#7 Подання у SQL',
       "code": 'Q7aR6J7kSSo'
     }, {
       "id": 8,
-      "name": '#8 Логика с CASE и COALESCE в SQL',
+      "name": '#8 Логіка з CASE та COALESCE у SQL',
       "code": 'vABhrFQJ9hk'
     }, {
       "id": 9,
-      "name": '#9 Функции SQL',
+      "name": '#9 Функції SQL',
       "code": 'c4nadBeCHSQ'
     }, {
       "id": 10,
-      "name": '#10 Функции pl/pgSQL',
+      "name": '#10 Функції pl/pgSQL',
       "code": 'akmegPNS6Zs'
     }, {
       "id": 11,
-      "name": '#11 Ошибки их обработка в SQL (исключения)',
+      "name": '#11 Помилки їх обробка в SQL (виключення)',
       "code": 'Vp2fxh1A3Fg'
     }]
   };
