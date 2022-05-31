@@ -414,12 +414,12 @@ window.addEventListener('DOMContentLoaded', () => {
       "link": 'https://drive.google.com/uc?export=download&id=1T5B4EIG2hw4Qu24SI1YhCXj_bsL2zhhS'
     },{
       "id": 13,
-      "name": "Тема №12: Розширене фільтрування даних (1-2)",
+      "name": "Тема №13: Розширене фільтрування даних (1-2)",
       "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vRBVQoTxBwdHbxISZoqXZezS50hmhE9yLyfw-kTFp2xqSQwD_kRu_ikrncT_CzKkg/pub?embedded=true"></iframe>',
       "link": 'https://drive.google.com/uc?export=download&id=1IClUvDC8anBvYIF7M9NbezwhBQvnzLMS'
     },{
       "id": 14,
-      "name": "Тема №12: Розширене фільтрування даних (2-2)",
+      "name": "Тема №14: Розширене фільтрування даних (2-2)",
       "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vTarjZleU9cuLQNkofH4xqanQCttGPoNPr3ctyO25d7a6WvlGu4G-eqpidZTIW7pg/pub?embedded=true"></iframe>',
       "link": 'https://drive.google.com/uc?export=download&id=1ObeLBiSHbIXhAwrhIRJsF6or_DBUNtUP'
     }],
