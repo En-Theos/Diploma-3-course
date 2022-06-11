@@ -425,27 +425,27 @@ window.addEventListener('DOMContentLoaded', () => {
     }],
     "practice": [{
       "id": 1,
-      "name": "Лабораторно-практична робота №1-2: Створення бази даних та таблиць.",
+      "name": "Лабораторно-практична робота №1: Створення бази даних та таблиць.",
       "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vRanFfz8Sft2meGbUoKeZ_ghcCU04uUasLECqYNqSSmzf-pHhz3ucUb8t9UwBlstg/pub?embedded=true"></iframe>',
       "link": 'https://drive.google.com/uc?export=download&id=1rmeVyDvnPQ2Ly3y7UnPK5CxWkiOcXFRh'
     }, {
       "id": 2,
-      "name": "Лабораторно-практична робота №3-4: Внесення змін у базу даних та таблиць",
+      "name": "Лабораторно-практична робота №2: Внесення змін у базу даних та таблиць",
       "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vTI4cshx5B6unAI4M7WLvwq0NsOgcjMzArq2fOi0taIUHLxXeHIlHeIqTF6dWfEWA/pub?embedded=true"></iframe>',
       "link": 'https://drive.google.com/uc?export=download&id=1W7rttMeIaz6FfmCmRrg5ALZU8uhPphhu'
     }, {
       "id": 3,
-      "name": "Лабораторно-практична робота №5-6: Вибірка даних зі створених відношень",
+      "name": "Лабораторно-практична робота №3: Вибірка даних зі створених відношень",
       "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vS2zTXhsLE6OfWHbo61jFRmfRv_QSfCPabdi-Ch71Q1GkK_SD0niym1Sbsj8LEvAQ/pub?embedded=true"></iframe>',
       "link": 'https://drive.google.com/uc?export=download&id=183gaEoKryL8hbeeIPV2r-dY3yxUcFHw7'
     }, {
       "id": 4,
-      "name": "Лабораторно-практична робота №7-8: Вибірка даних зі створених відношень",
+      "name": "Лабораторно-практична робота №4: Вибірка даних зі створених відношень",
       "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vS8k_MRHJ5h1HZebsFV7pFSMdf0KISWO14il-gUQEdYVYeg5TSkeNKX6UBxcGG4Cg/pub?embedded=true"></iframe>',
       "link": 'https://drive.google.com/uc?export=download&id=1Nf72tHWvu_oINvDSFWFOzubedRqTSj1a'
     }, {
       "id": 5,
-      "name": "Лабораторно-практична робота №9-10: Вибірка даних зі створених відношень",
+      "name": "Лабораторно-практична робота №5: Вибірка даних зі створених відношень",
       "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vQR6yU79Yv-91XwTxc5R6R1ZdlU1zvGWCaZ_LiYYG0uIRA4XCu6ZmvKULcTV8jW9g/pub?embedded=true"></iframe>',
       "link": 'https://drive.google.com/uc?export=download&id=1YNc_C_hf7-Ohd5z0Plg1SpU4orUeGGtt'
     }],
