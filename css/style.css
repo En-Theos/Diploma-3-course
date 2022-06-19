@@ -590,7 +590,7 @@ body footer .limit .linkFooter {
           justify-content: space-between;
 }
 
-@media (max-width: 660px) {
+@media (max-width: 680px) {
   body footer .limit .linkFooter {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -604,18 +604,24 @@ body footer .limit .linkFooter div:first-child {
   -ms-flex-negative: 0;
       flex-shrink: 0;
   margin-right: 80px;
+  margin-bottom: 15px;
 }
 
-@media (max-width: 660px) {
+@media (max-width: 680px) {
   body footer .limit .linkFooter div:first-child {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    width: 100%;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
     margin-right: 0;
   }
+}
+
+body footer .limit .linkFooter div:first-child p {
+  line-height: 25px;
 }
 
 body footer .limit .linkFooter div:first-child p a {
