@@ -539,6 +539,7 @@ body .modalLesson .content .error {
 body .modalLesson .content iframe {
   height: 440px;
   width: 830px;
+  height: 440px;
 }
 
 body .modalLesson img {
