@@ -600,6 +600,9 @@ body footer .limit .linkFooter {
 }
 
 body footer .limit .linkFooter div:first-child {
+  width: 100px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   margin-right: 80px;
 }
 
@@ -619,8 +622,6 @@ body footer .limit .linkFooter div:first-child p a {
   color: #8297a7;
   font-family: "Montserrat", sans-serif;
   font-size: 12px;
-  font-weight: 400;
-  line-height: 35px;
 }
 
 body footer .limit .linkFooter > div:last-child p {

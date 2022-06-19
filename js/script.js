@@ -214,8 +214,17 @@ function modal(listCode) {
         document.body.style.overflow = "hidden";
 
         if (document.URL.includes('theory') || document.URL.includes('practice')) {
-          modalBlock.querySelector('.content').innerHTML = listCode.frames[buttonSearch.firstElementChild.value - 1] || `<p class="error">Лекції з таким номером не знайдено</p>`;
-          modalBlock.querySelector('.header .download a').href = listCode.links[buttonSearch.firstElementChild.value - 1];
+          if (listCode.frames[buttonSearch.firstElementChild.value - 1] || listCode.frames[buttonSearch.firstElementChild.value - 1] == 0) {
+            modalBlock.querySelector('.content').innerHTML = listCode.frames[buttonSearch.firstElementChild.value - 1];
+            modalBlock.querySelector('.header .download a').href = listCode.links[buttonSearch.firstElementChild.value - 1];
+            modalBlock.querySelector('[src="./image/load.gif"]').style.display = 'block';
+          } else {
+            modalBlock.querySelector('.content').innerHTML = `<p class="error">Лекції з таким номером не знайдено</p>`;
+            modalBlock.querySelector('.header .download a').href = '#';
+            modalBlock.querySelector('.header .download a').target = '';
+            modalBlock.querySelector('[src="./image/load.gif"]').style.display = 'none';
+            setTimeout(closeModal, 2500);
+          }
         }
       } else {
         if (!document.URL.includes('video')) {
@@ -226,9 +235,17 @@ function modal(listCode) {
       if (document.URL.includes('video')) {
         modalBlock.style.display = "block";
         document.body.style.overflow = "hidden";
-        let player = new YT.Player('frame', {
-          videoId: listCode.frames[buttonSearch.firstElementChild.value - 1]
-        });
+
+        if (listCode.frames[buttonSearch.firstElementChild.value - 1] || listCode.frames[buttonSearch.firstElementChild.value - 1] == 0) {
+          new YT.Player('frame', {
+            videoId: listCode.frames[buttonSearch.firstElementChild.value - 1]
+          });
+          modalBlock.querySelector('[src="./image/load.gif"]').style.display = 'block';
+        } else {
+          modalBlock.querySelector('[src="./image/load.gif"]').style.display = 'none';
+          modalBlock.querySelector('#frame').innerHTML = `<p class="error">Лекції з таким номером не знайдено</p>`;
+          setTimeout(closeModal, 2500);
+        }
       }
     }
   });
@@ -255,14 +272,18 @@ function modal(listCode) {
   });
   modalBlock.addEventListener('click', event => {
     if (event.target.classList.contains('content') || event.target.parentElement.classList.contains('close') || event.target.classList.contains('close')) {
-      modalBlock.style.display = "none";
-      document.body.style.overflow = "";
-
-      if (document.URL.includes('video')) {
-        modalBlock.querySelector('.content').innerHTML = '<div id="frame"></div>';
-      }
+      closeModal();
     }
   });
+
+  function closeModal() {
+    modalBlock.style.display = "none";
+    document.body.style.overflow = "";
+
+    if (document.URL.includes('video')) {
+      modalBlock.querySelector('.content').innerHTML = '<div id="frame"></div>';
+    }
+  }
 }
 
 /***/ }),
@@ -412,12 +433,12 @@ window.addEventListener('DOMContentLoaded', () => {
       "name": "Тема №12: Фільтрування даних",
       "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vSq-iYwJQL6VrJpfFIUHKOgPnk6NvXWqxBS0GKX7_X3jC9RJaiHfLms1T_orcnxqg/pub?embedded=true"></iframe>',
       "link": 'https://drive.google.com/uc?export=download&id=1T5B4EIG2hw4Qu24SI1YhCXj_bsL2zhhS'
-    },{
+    }, {
       "id": 13,
       "name": "Тема №13: Розширене фільтрування даних (1-2)",
       "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vRBVQoTxBwdHbxISZoqXZezS50hmhE9yLyfw-kTFp2xqSQwD_kRu_ikrncT_CzKkg/pub?embedded=true"></iframe>',
       "link": 'https://drive.google.com/uc?export=download&id=1IClUvDC8anBvYIF7M9NbezwhBQvnzLMS'
-    },{
+    }, {
       "id": 14,
       "name": "Тема №14: Розширене фільтрування даних (2-2)",
       "code": '<iframe src="https://docs.google.com/document/d/e/2PACX-1vTarjZleU9cuLQNkofH4xqanQCttGPoNPr3ctyO25d7a6WvlGu4G-eqpidZTIW7pg/pub?embedded=true"></iframe>',
